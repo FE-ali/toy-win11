@@ -5,6 +5,11 @@ import React from 'react';
 import Icon from '../icon';
 
 import { useTask } from '../../context/task-context';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
+
+import TaskDate from './task-date';
+import TaskPanel from './task-panel';
 
 export default function TaskBar() {
   const { taskList } = useTask();
@@ -28,7 +33,13 @@ export default function TaskBar() {
           </div>
         </div>
         {/* 右边 */}
-        <div className='absolute top-0 right-0 w-auto h-full ml-2 flex'></div>
+        <div className='absolute top-0 right-0 w-auto h-full ml-2 flex'>
+          <div className='w-6 relative grid place-items-center'>
+            <FontAwesomeIcon icon={faChevronUp} className='w-2.5 h-2.5' />
+          </div>
+          <TaskPanel />
+          <TaskDate />
+        </div>
       </div>
     </div>
   );
