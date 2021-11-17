@@ -6,6 +6,12 @@ module.exports = {
       backgroundImage: {
         desktopImg0: "url('images/wallpaper/img0.jpg')",
       },
+      invert: {
+        14: '.14',
+      },
+      dropShadow: {
+        battery: '1px 1px #fefefe',
+      },
     },
     colors: {
       'task-bar-bg': '#f3f3f3d9',
