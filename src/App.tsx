@@ -1,10 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
+import TaskBar from '@components/task-bar';
+import Background from '@containers/background';
 
 function App() {
   return (
-    <div className="App">
-      hello
+    <div className='App'>
+      <Background />
+      <TaskBar />
     </div>
   );
 }
