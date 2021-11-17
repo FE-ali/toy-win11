@@ -1,8 +1,8 @@
 import React from 'react';
 
-import wifiIcon from '../../../images/ui/wifi.png';
-import audioIcon from '../../../images/ui/audio3.png';
-import plugIcon from '../../../images/ui/plug.png';
+import wifiIcon from '@images/ui/wifi.png';
+import audioIcon from '@images/ui/audio3.png';
+import plugIcon from '@images/ui/plug.png';
 
 export default function TaskPanel() {
   return (

@@ -4,7 +4,7 @@
 import React from 'react';
 import Icon from '../icon';
 
-import { useTask } from '../../context/task-context';
+import { useTask } from '@context/task-context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 

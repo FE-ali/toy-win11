@@ -1,7 +1,7 @@
-import { Task } from '../typings/task';
-import homeIcon from '../images/icons/home.png';
-import searchIcon from '../images/icons/search.png';
-import widgetIcon from '../images/icons/widget.png';
+import { Task } from '@typings/task';
+import homeIcon from '@images/icons/home.png';
+import searchIcon from '@images/icons/search.png';
+import widgetIcon from '@images/icons/widget.png';
 
 export const initalTaskListState: () => Task[] = () => {
   return [

@@ -2,8 +2,8 @@
  * 任务 Context、Provider和自定义hook
  */
 import React, { useState } from 'react';
-import { initalTaskListState } from '../constant';
-import { Task } from '../typings/task';
+import { initalTaskListState } from '@constant/index';
+import { Task } from '@typings/task';
 
 export const TaskContext = React.createContext<
   | {
