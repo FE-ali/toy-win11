@@ -2,10 +2,12 @@
  * 任务 Context、Provider和自定义hook
  */
 import React, { useState } from 'react';
+import { initalTaskListState } from '../constant';
 import { Task } from '../typings/task';
 
 export const TaskContext = React.createContext<
   | {
+      taskList: Task[];
       pushTask: (task: Task) => void;
       popTask: () => void;
       getTaskById: (id: string) => Task | undefined;
@@ -17,7 +19,7 @@ export const TaskContext = React.createContext<
 >(undefined);
 
 export const TaskProvider = ({ children }: { children: React.ReactNode }) => {
-  const [taskList, setTaskList] = useState<Task[]>([]);
+  const [taskList, setTaskList] = useState<Task[]>(() => initalTaskListState());
 
   const pushTask = (task: Task) => {
     setTaskList([...taskList, task]);
@@ -57,6 +59,7 @@ export const TaskProvider = ({ children }: { children: React.ReactNode }) => {
     <TaskContext.Provider
       children={children}
       value={{
+        taskList,
         pushTask,
         popTask,
         getTaskById,

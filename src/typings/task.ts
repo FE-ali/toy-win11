@@ -5,5 +5,6 @@ export interface Task {
   id: string;
   name: string;
   show: boolean;
-  zIndex: number;
+  closed: boolean;
+  iconSrc: string;
 }
