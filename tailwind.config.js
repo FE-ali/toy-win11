@@ -8,8 +8,10 @@ module.exports = {
         110: '110%',
       },
       backgroundImage: {
-        desktopImg0: "url('../images/wallpaper/img0.jpg')",
-        desktopImg1: "url('../images/wallpaper/img1.jpg')",
+        desktopImg0:
+          "url('https://jzhmcoo1-1258918430.cos.ap-shanghai.myqcloud.com/markdown/img0@0.5x.webp')",
+        desktopImg1:
+          "url('https://jzhmcoo1-1258918430.cos.ap-shanghai.myqcloud.com/markdown/img1@0.5x.webp')",
       },
       invert: {
         14: '.14',
