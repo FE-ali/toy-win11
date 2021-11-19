@@ -1,0 +1,48 @@
+.time-exit-active {
+  @apply opacity-0 transform -translate-y-1/2 transition-all ease-in-out duration-200;
+}
+
+.login-enter {
+  @apply absolute top-0 opacity-0 h-full w-full;
+  backdrop-filter: blur(20px);
+}
+.login-enter-active {
+  @apply absolute top-0 opacity-100 h-full w-full transition-all ease-in-out duration-700;
+  backdrop-filter: blur(20px);
+}
+.login-enter-done {
+  @apply absolute top-0 opacity-100 h-full w-full;
+  backdrop-filter: blur(20px);
+}
+
+.bg {
+  background-image: url('https://pic3.zhimg.com/v2-4b8579ba5e07dd57405973606e777476_r.jpg');
+  background-size: 100%;
+}
+
+.header {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+.header-icon {
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+}
+.header p {
+  margin: 8px 0;
+  font-size: 18px;
+}
+.header button {
+  padding: 2px 33px;
+  font-size: 12px;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  backdrop-filter: blur(21px);
+  background: rgba(255, 255, 255, 0.1);
+}
+.header button:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
