@@ -5,6 +5,7 @@ import Desktop from '@components/desktop';
 import Login from './containers/login/Login';
 import { LoginContext } from './context/login-context';
 import BrightOverlay from './components/bright-overlay';
+import './App.scss';
 
 function App() {
   const { loginStatus } = useContext(LoginContext);
