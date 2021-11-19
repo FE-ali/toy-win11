@@ -20,12 +20,12 @@ export default function TaskPanel() {
       </div>
       <div className='w-6 relative grid place-items-center'>
         <div className='flex relative'>
-          <div className='absolute -ml-0.5 -mt-0.5 z-10 filter drop-shadow-battery invert-14'>
+          <div className='absolute -ml-0.5 -mt-0.5 filter drop-shadow-battery invert-14'>
             <img
               src={plugIcon}
               width={6}
               alt='plug'
-              className=' transition-all duration-400 ease-in-out origin-center'
+              className='transition-all duration-400 ease-in-out origin-center'
             />
           </div>
           <i className='fa fa-battery-full text-xs'></i>
