@@ -34,6 +34,7 @@ export const initalTaskListState: () => Task[] = () => {
       show: false,
       closed: true,
       iconSrc: searchIcon,
+      invert: true,
     },
     { id: '003', name: 'home', show: false, closed: true, iconSrc: widgetIcon },
   ];
