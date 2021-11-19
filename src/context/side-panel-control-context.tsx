@@ -48,7 +48,6 @@ export const SidePanelControlProvider = ({
   });
 
   const triggerBtnByName = (name: string) => {
-    console.log('name', name);
     const btnIndex = btnList.findIndex((btn) => btn.name === name);
     if (btnIndex !== -1) {
       const btnObj = btnList[btnIndex];
