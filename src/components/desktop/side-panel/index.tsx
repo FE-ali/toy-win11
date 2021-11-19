@@ -64,10 +64,14 @@ const SliderController = ({
 };
 
 export default function SidePanel() {
-  const { btnList, sliderList } = useSideControl();
+  const { btnList, sliderList, show } = useSideControl();
 
   return (
-    <div className='absolute bottom-4 right-4 w-90 bg-side-panel-bg rounded-lg backdrop-filter blur-lg transition-all duration-200 ease-in transform translate-x-0'>
+    <div
+      className={`absolute bottom-4 right-4 w-90 bg-side-panel-bg rounded-lg backdrop-filter blur-lg transition-all duration-200 ease-in transform translate-x-0 ${
+        show ? 'transition-transform translate-x-110' : ''
+      }`}
+    >
       <div className='flex flex-col gap-5 p-5'>
         <div className='w-full flex flex-wrap justify-between'>
           {btnList.map((item) => (

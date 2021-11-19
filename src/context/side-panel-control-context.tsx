@@ -11,6 +11,7 @@ import {
 
 export const SidePanelControlContext = React.createContext<
   | {
+      show: boolean;
       systemState: SystemState;
       getSystemValue: (key: keyof SystemState) => number;
       handleSlider: (type: string, value: number) => void;
@@ -18,6 +19,7 @@ export const SidePanelControlContext = React.createContext<
       sliderList: SidePanelControlSlider[];
       addBtn: (btn: SidePanelControlBtn) => void;
       addSlider: (slider: SidePanelControlSlider) => void;
+      triggerSidePanelShow: () => void;
     }
   | undefined
 >(undefined);
@@ -27,15 +29,19 @@ export const SidePanelControlProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
+  const [show, setShow] = useState(false);
   const [btnList, setBtnList] = useState(() => initalSidePanelControlBtn());
   const [sliderList, setSliderList] = useState(() =>
     initialSidePanelControlSlider()
   );
-
   const [systemState, setSystemState] = useState({
     brightness: 100,
     volume: 100,
   });
+
+  const triggerSidePanelShow = () => {
+    setShow(!show);
+  };
 
   const getSystemValue = (key: keyof SystemState) => {
     return systemState[key];
@@ -78,6 +84,7 @@ export const SidePanelControlProvider = ({
   return (
     <SidePanelControlContext.Provider
       value={{
+        show,
         btnList,
         addBtn,
         sliderList,
@@ -85,6 +92,7 @@ export const SidePanelControlProvider = ({
         getSystemValue,
         handleSlider,
         systemState,
+        triggerSidePanelShow,
       }}
     >
       {children}
