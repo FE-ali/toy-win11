@@ -43,7 +43,7 @@ const Login = () => {
       >
         <div>
           <div className='header'>
-            <img className='header-icon' src={homeIcon} />
+            <img className='header-icon' src={homeIcon} alt='头像' />
             <p>Administrator</p>
             <button onClick={login}>登录</button>
           </div>
