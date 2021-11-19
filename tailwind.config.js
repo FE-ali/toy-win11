@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      translate: {
+        110: '110%',
+      },
       backgroundImage: {
         desktopImg0: "url('images/wallpaper/img0.jpg')",
       },
