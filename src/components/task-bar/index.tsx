@@ -14,7 +14,7 @@ import TaskPanel from './task-panel';
 export default function TaskBar() {
   const { taskList } = useTask();
   return (
-    <div className='absolute bottom-0 w-screen h-10 bg-task-bar-bg backdrop-filter saturate-300 blur-lg'>
+    <div className='absolute bottom-0 w-screen h-10 bg-task-bar-bg dark:bg-task-bar-bg-dark backdrop-filter saturate-300 blur-lg transition-all duration-200 ease'>
       <div className='relative w-full h-full'>
         {/* 左边 */}
         <div className='flex flex-col w-full h-full'>
@@ -27,13 +27,15 @@ export default function TaskBar() {
                   size={22}
                   iconSrc={taskItem.iconSrc}
                   name={taskItem.name}
+                  hover={true}
+                  invert={taskItem.invert}
                 />
               );
             })}
           </div>
         </div>
         {/* 右边 */}
-        <div className='absolute top-0 right-0 w-auto h-full ml-2 flex'>
+        <div className='absolute top-0 right-0 w-auto h-full ml-2 flex filter dark:invert'>
           <div className='w-6 relative grid place-items-center'>
             <FontAwesomeIcon icon={faChevronUp} className='w-2.5 h-2.5' />
           </div>

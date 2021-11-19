@@ -8,10 +8,13 @@ import {
   initalSidePanelControlBtn,
   initialSidePanelControlSlider,
 } from '@src/constant';
+import moonIcon from '@images/ui/moon.png';
+import sunIcon from '@images/ui/sun.png';
 
 export const SidePanelControlContext = React.createContext<
   | {
       show: boolean;
+      darkMode: boolean;
       systemState: SystemState;
       getSystemValue: (key: keyof SystemState) => number;
       handleSlider: (type: string, value: number) => void;
@@ -20,9 +23,12 @@ export const SidePanelControlContext = React.createContext<
       addBtn: (btn: SidePanelControlBtn) => void;
       addSlider: (slider: SidePanelControlSlider) => void;
       triggerSidePanelShow: () => void;
+      triggerBtnByName: (name: string) => void;
     }
   | undefined
 >(undefined);
+
+SidePanelControlContext.displayName = 'SidePanelControlContext';
 
 export const SidePanelControlProvider = ({
   children,
@@ -30,6 +36,8 @@ export const SidePanelControlProvider = ({
   children: React.ReactNode;
 }) => {
   const [show, setShow] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  const [nightLight, setNightLight] = useState(false);
   const [btnList, setBtnList] = useState(() => initalSidePanelControlBtn());
   const [sliderList, setSliderList] = useState(() =>
     initialSidePanelControlSlider()
@@ -38,6 +46,47 @@ export const SidePanelControlProvider = ({
     brightness: 100,
     volume: 100,
   });
+
+  const triggerBtnByName = (name: string) => {
+    console.log('name', name);
+    const btnIndex = btnList.findIndex((btn) => btn.name === name);
+    if (btnIndex !== -1) {
+      const btnObj = btnList[btnIndex];
+      btnObj.status = !btnObj.status;
+      setBtnList([...btnList]);
+    }
+    switch (name) {
+      case 'Theme':
+        triggerDarkMode();
+        break;
+      case 'Night Light':
+        triggerNightLight();
+        break;
+      default:
+        break;
+    }
+  };
+
+  const triggerNightLight = () => {
+    document.body.dataset.sepia = !nightLight + '';
+    setNightLight(!nightLight);
+  };
+
+  const triggerDarkMode = () => {
+    const btn = btnList.find((item) => item.name === 'Theme');
+    if (darkMode === false) {
+      document.documentElement.classList.add('dark');
+      if (btn) {
+        btn.iconSrc = moonIcon;
+      }
+    } else {
+      document.documentElement.classList.remove('dark');
+      if (btn) {
+        btn.iconSrc = sunIcon;
+      }
+    }
+    setDarkMode(!darkMode);
+  };
 
   const triggerSidePanelShow = () => {
     setShow(!show);
@@ -85,6 +134,7 @@ export const SidePanelControlProvider = ({
     <SidePanelControlContext.Provider
       value={{
         show,
+        darkMode,
         btnList,
         addBtn,
         sliderList,
@@ -93,6 +143,7 @@ export const SidePanelControlProvider = ({
         handleSlider,
         systemState,
         triggerSidePanelShow,
+        triggerBtnByName,
       }}
     >
       {children}
