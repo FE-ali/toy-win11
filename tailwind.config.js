@@ -32,6 +32,7 @@ module.exports = {
       'task-bar-bg-dark': '#202020bf',
       'icon-bg': '#fefefe00',
       'icon-hover-bg': '#ffffffcc',
+      'icon-hover-bg-dark': '#ffffff1a',
       'side-panel-bg': '#f2f2f2e6',
       'side-panel-bg-dark': '#242424cc',
       'side-panel-btn-bg': '#fbfbfb',
