@@ -5,6 +5,7 @@ import React from 'react';
 import { SidePanelControlProvider } from './side-panel-control-context';
 import { TaskProvider } from './task-context';
 import { LoginProvider } from './login-context';
+import { DesktopAppsProvider } from './desktop-apps';
 export default function AppProvider({
   children,
 }: {
@@ -13,7 +14,11 @@ export default function AppProvider({
   return (
     <LoginProvider>
       <TaskProvider>
-        <SidePanelControlProvider>{children}</SidePanelControlProvider>
+        <SidePanelControlProvider>
+          <DesktopAppsProvider>
+            {children}
+          </DesktopAppsProvider>
+        </SidePanelControlProvider>
       </TaskProvider>
     </LoginProvider>
   );

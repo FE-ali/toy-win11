@@ -13,34 +13,75 @@ import connectIcon from '@images/ui/connect.png';
 import projectIcon from '@images/ui/project.png';
 import brightnessIcon from '@images/ui/brightness.png';
 import audio3Icon from '@images/ui/audio3.png';
+import userDirIcon from '@images/apps/userDir.png';
+import bin0Icon from '@images/apps/bin0.png';
+import edgeIcon from '@images/apps/edge.png';
+import githubIcon from '@images/apps/github.png';
+import storeIcon from '@images/apps/store.png';
+import explorerIcon from '@images/apps/explorer.png';
 import {
   SidePanelControlBtn,
   SidePanelControlSlider,
 } from '@src/typings/side-panel-control';
+import { DesktopApps } from '@src/typings/desktop-app';
 
 export const initalTaskListState: () => Task[] = () => {
   return [
-    {
-      id: '001',
-      name: 'home',
-      show: false,
-      closed: true,
-      iconSrc: homeIcon,
-    },
+    { id: '001', name: 'home', show: false, closed: true, iconSrc: homeIcon },
     {
       id: '002',
       name: 'search',
       show: false,
       closed: true,
       iconSrc: searchIcon,
-      invert: true,
+    },
+    { id: '003', name: 'home', show: false, closed: true, iconSrc: widgetIcon },
+  ];
+};
+
+export const initalDesktopApps: () => DesktopApps[] = () => {
+  return [
+    {
+      id: '001',
+      name: 'UserDir',
+      func: () => {},
+      status: false,
+      iconSrc: userDirIcon,
+    },
+    {
+      id: '002',
+      name: 'Recycle Bin',
+      func: () => {},
+      status: false,
+      iconSrc: bin0Icon,
     },
     {
       id: '003',
-      name: 'home',
-      show: false,
-      closed: true,
-      iconSrc: widgetIcon,
+      name: 'File Explorer',
+      func: () => {},
+      status: false,
+      iconSrc: explorerIcon,
+    },
+    {
+      id: '004',
+      name: 'Edge',
+      func: () => {},
+      status: false,
+      iconSrc: edgeIcon,
+    },
+    {
+      id: '005',
+      name: 'Github',
+      func: () => {},
+      status: false,
+      iconSrc: githubIcon,
+    },
+    {
+      id: '006',
+      name: 'Store',
+      func: () => {},
+      status: false,
+      iconSrc: storeIcon,
     },
   ];
 };
