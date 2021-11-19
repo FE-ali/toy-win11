@@ -24,6 +24,8 @@ export const SidePanelControlContext = React.createContext<
   | undefined
 >(undefined);
 
+SidePanelControlContext.displayName = 'SidePanelControlContext';
+
 export const SidePanelControlProvider = ({
   children,
 }: {
