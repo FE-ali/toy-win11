@@ -33,6 +33,7 @@ module.exports = {
       'side-panel-btn-bg': '#fbfbfb',
       'side-panel-border': '#1111111a',
       'side-panel-slider': '#0067c0',
+      black: '#000',
     },
     borderWidth: {
       '01': '0.1px',

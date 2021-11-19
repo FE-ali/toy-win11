@@ -4,6 +4,7 @@ import Background from '@containers/background';
 import Desktop from '@components/desktop';
 import Login from './containers/login/Login';
 import { LoginContext } from './context/login-context';
+import BrightOverlay from './components/bright-overlay';
 
 function App() {
   const { loginStatus } = useContext(LoginContext);
@@ -14,6 +15,7 @@ function App() {
           <Background />
           <Desktop />
           <TaskBar />
+          <BrightOverlay />
         </>
       ) : (
         <Login />
