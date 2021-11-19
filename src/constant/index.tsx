@@ -20,15 +20,28 @@ import {
 
 export const initalTaskListState: () => Task[] = () => {
   return [
-    { id: '001', name: 'home', show: false, closed: true, iconSrc: homeIcon },
+    {
+      id: '001',
+      name: 'home',
+      show: false,
+      closed: true,
+      iconSrc: homeIcon,
+    },
     {
       id: '002',
       name: 'search',
       show: false,
       closed: true,
       iconSrc: searchIcon,
+      invert: true,
     },
-    { id: '003', name: 'home', show: false, closed: true, iconSrc: widgetIcon },
+    {
+      id: '003',
+      name: 'home',
+      show: false,
+      closed: true,
+      iconSrc: widgetIcon,
+    },
   ];
 };
 

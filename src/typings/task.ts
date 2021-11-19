@@ -7,4 +7,5 @@ export interface Task {
   show: boolean;
   closed: boolean;
   iconSrc: string;
+  invert?: boolean; //图标使用png图片在黑夜模式下反转成白色
 }
