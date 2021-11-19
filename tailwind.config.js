@@ -7,7 +7,7 @@ module.exports = {
         110: '110%',
       },
       backgroundImage: {
-        desktopImg0: "url('images/wallpaper/img0.jpg')",
+        desktopImg0: "url('../images/wallpaper/img0.jpg')",
       },
       invert: {
         14: '.14',

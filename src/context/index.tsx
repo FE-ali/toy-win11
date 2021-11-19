@@ -4,15 +4,17 @@
 import React from 'react';
 import { SidePanelControlProvider } from './side-panel-control-context';
 import { TaskProvider } from './task-context';
-
+import { LoginProvider } from './login-context';
 export default function AppProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <TaskProvider>
-      <SidePanelControlProvider>{children}</SidePanelControlProvider>
-    </TaskProvider>
+    <LoginProvider>
+      <TaskProvider>
+        <SidePanelControlProvider>{children}</SidePanelControlProvider>
+      </TaskProvider>
+    </LoginProvider>
   );
 }

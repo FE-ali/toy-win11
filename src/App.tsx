@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import TaskBar from '@components/task-bar';
 import Background from '@containers/background';
 import Desktop from '@components/desktop';
+import Login from './containers/login/Login';
+import { LoginContext } from './context/login-context';
 
 function App() {
+  const { loginStatus } = useContext(LoginContext);
   return (
     <div className='App'>
-      <Background />
-      <Desktop />
-      <TaskBar />
+      {loginStatus === 'logined' ? (
+        <>
+          <Background />
+          <Desktop />
+          <TaskBar />
+        </>
+      ) : (
+        <Login />
+      )}
     </div>
   );
 }
