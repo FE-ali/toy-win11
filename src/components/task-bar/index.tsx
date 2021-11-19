@@ -13,7 +13,6 @@ import TaskPanel from './task-panel';
 
 export default function TaskBar() {
   const { taskList } = useTask();
-
   return (
     <div className='absolute bottom-0 w-screen h-10 bg-task-bar-bg backdrop-filter saturate-300 blur-lg'>
       <div className='relative w-full h-full'>
@@ -24,6 +23,7 @@ export default function TaskBar() {
             {taskList.map((taskItem) => {
               return (
                 <Icon
+                  key={taskItem.id}
                   size={22}
                   iconSrc={taskItem.iconSrc}
                   name={taskItem.name}
@@ -39,6 +39,7 @@ export default function TaskBar() {
           </div>
           <TaskPanel />
           <TaskDate />
+          <div className='ml-1'></div>
         </div>
       </div>
     </div>
