@@ -77,6 +77,7 @@ module.exports = {
       indigo: colors.indigo,
       red: colors.rose,
       yellow: colors.amber,
+      notification: '#ff0000',
     },
     borderWidth: {
       '01': '0.1px',

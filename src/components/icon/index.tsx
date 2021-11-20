@@ -36,7 +36,7 @@ export default function Icon({
          ${invert && !status ? 'filter dark:invert' : ''}`}
       />
       {notification ? (
-        <div className='absolute top-0 right-0 w-3 h-3 flex align-middle justify-center text-3xs text-white bg-red rounded-full'>
+        <div className='absolute top-0 right-0 w-3 h-3 flex align-middle justify-center text-3xs text-white bg-notification rounded-full'>
           {notification}
         </div>
       ) : (
