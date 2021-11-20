@@ -1,6 +1,7 @@
+const colors = require('tailwindcss/colors');
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     fontSize: {
       '3xs': '.5rem',
@@ -24,7 +25,10 @@ module.exports = {
         110: '110%',
       },
       backgroundImage: {
-        desktopImg0: "url('../images/wallpaper/img0.jpg')",
+        desktopImg0:
+          "url('https://jzhmcoo1-1258918430.cos.ap-shanghai.myqcloud.com/markdown/img0@0.5x.webp')",
+        desktopImg1:
+          "url('https://jzhmcoo1-1258918430.cos.ap-shanghai.myqcloud.com/markdown/img1@0.5x.webp')",
       },
       invert: {
         14: '.14',
@@ -45,16 +49,18 @@ module.exports = {
     },
     colors: {
       'task-bar-bg': '#f3f3f3d9',
+      'task-bar-bg-dark': '#202020bf',
       'icon-bg': '#fefefe00',
       'icon-hover-bg': '#ffffffcc',
+      'icon-hover-bg-dark': '#ffffff1a',
       'side-panel-bg': '#f2f2f2e6',
+      'side-panel-bg-dark': '#242424cc',
       'side-panel-btn-bg': '#fbfbfb',
+      'side-panel-btn-bg-on': '#0067c0',
+      'side-panel-btn-bg-dark': '#ffffff14',
+      'side-panel-btn-bg-dark-on': '#4cc2ff',
       'side-panel-border': '#1111111a',
       'side-panel-slider': '#0067c0',
-      black: '#000',
-      white: '#fff',
-      transparent: 'transparent',
-      red: '#ff0000',
       'window-default': '#00000060',
       'close-hover': '#ff000040',
       'resize-hover': '#00000040',
@@ -63,6 +69,14 @@ module.exports = {
       'dingtalk-dialog-hover': '#eaebed',
       'dingtalk-dialog-active': '#e1e2e4',
       'dingtalk-dialog-bg': '#f1f2f3',
+      transparent: 'transparent',
+      current: 'currentColor',
+      black: colors.black,
+      white: colors.white,
+      gray: colors.trueGray,
+      indigo: colors.indigo,
+      red: colors.rose,
+      yellow: colors.amber,
     },
     borderWidth: {
       '01': '0.1px',
@@ -71,6 +85,8 @@ module.exports = {
   variants: {
     extend: {
       scale: ['active'],
+      backgroundImage: ['dark'],
+      invert: ['dark'],
     },
   },
   plugins: [],

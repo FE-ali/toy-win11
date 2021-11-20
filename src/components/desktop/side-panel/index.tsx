@@ -14,14 +14,29 @@ const QuickControlBtn = ({
   status,
   name,
 }: SidePanelControlBtn) => {
+  const { triggerBtnByName } = useSideControl();
+
   return (
     <div className='flex flex-col items-center'>
-      <div className='w-24 h-12 rounded justify-center bg-side-panel-btn-bg transition-all duration-100 ease-linear flex items-center cursor-pointer border-side-panel-border border-01 border-solid'>
+      <div
+        onClick={() => {
+          triggerBtnByName(name);
+        }}
+        className={`w-24 h-12 rounded justify-center flex items-center cursor-pointer border-side-panel-border border-01 border-solid transition-all duration-200 ease ${
+          !status ? 'bg-side-panel-btn-bg' : 'bg-side-panel-btn-bg-on'
+        } ${
+          !status
+            ? 'dark:bg-side-panel-btn-bg-dark'
+            : 'dark:bg-side-panel-btn-bg-dark-on'
+        }`}
+      >
         <div className='relative grid place-items-center'>
-          <Icon iconSrc={iconSrc} size={14} />
+          <Icon iconSrc={iconSrc} size={14} status={status} invert />
         </div>
       </div>
-      <div className='w-max text-xs mb-4 mt-2'>{name}</div>
+      <div className='w-max text-xs mb-4 mt-2 text-black dark:text-white transition-all duration-200 ease'>
+        {name}
+      </div>
     </div>
   );
 };
@@ -46,7 +61,7 @@ const SliderController = ({
   return (
     <div className='w-full flex items-center'>
       <div className='relative grid place-items-center'>
-        <Icon iconSrc={iconSrc} size={iconSize} />
+        <Icon iconSrc={iconSrc} size={iconSize} invert />
       </div>
       <input
         type='range'
@@ -69,8 +84,8 @@ export default function SidePanel() {
   return (
     <div
       className={`absolute bottom-4 right-4 w-90 bg-side-panel-bg rounded-lg backdrop-filter blur-lg transition-all duration-200 ease-in transform translate-x-0 ${
-        show ? 'transition-transform translate-x-110' : ''
-      }`}
+        show ? '' : 'transition-transform translate-x-110'
+      } dark:bg-side-panel-bg-dark`}
     >
       <div className='flex flex-col gap-5 p-5'>
         <div className='w-full flex flex-wrap justify-between'>

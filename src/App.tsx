@@ -7,6 +7,7 @@ import Login from './containers/login/Login';
 import { LoginContext } from './context/login-context';
 import BrightOverlay from './components/bright-overlay';
 import { useTask } from './context/task-context';
+import './App.scss';
 
 function App() {
   const { loginStatus } = useContext(LoginContext);

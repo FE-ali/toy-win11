@@ -9,4 +9,5 @@ export interface Task {
   iconSrc: string;
   iconSize?: number;
   notification?: number;
+  invert?: boolean; //图标使用png图片在黑夜模式下反转成白色
 }

@@ -22,6 +22,8 @@ export const TaskContext = React.createContext<
   | undefined
 >(undefined);
 
+TaskContext.displayName = 'TaskContext';
+
 export const TaskProvider = ({ children }: { children: React.ReactNode }) => {
   const [taskList, setTaskList] = useState<Task[]>(() => initalTaskListState());
 
