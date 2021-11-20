@@ -1,8 +1,9 @@
 /**
  * Win11任务栏
  */
-import React from 'react';
+import React, { useEffect } from 'react';
 import Icon from '../icon';
+import dingtalk from '@images/icons/钉钉.svg';
 
 import { useTask } from '@context/task-context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,7 +13,19 @@ import TaskDate from './task-date';
 import TaskPanel from './task-panel';
 
 export default function TaskBar() {
-  const { taskList } = useTask();
+  const { taskList, pushTask, openTask, showTask } = useTask();
+  useEffect(() => {
+    pushTask({
+      id: 'dingtalk',
+      name: 'DingTalk',
+      show: false,
+      closed: true,
+      iconSrc: dingtalk,
+      iconSize: 28,
+      notification: 1,
+    });
+  }, []);
+
   return (
     <div className='absolute bottom-0 w-screen h-10 bg-task-bar-bg backdrop-filter saturate-300 blur-lg'>
       <div className='relative w-full h-full'>
@@ -24,9 +37,15 @@ export default function TaskBar() {
               return (
                 <Icon
                   key={taskItem.id}
-                  size={22}
+                  size={taskItem.iconSize ?? 22}
                   iconSrc={taskItem.iconSrc}
                   name={taskItem.name}
+                  notification={taskItem.notification}
+                  onClick={
+                    taskItem.closed
+                      ? () => openTask(taskItem.id)
+                      : () => showTask(taskItem.id)
+                  }
                 />
               );
             })}

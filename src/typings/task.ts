@@ -7,4 +7,6 @@ export interface Task {
   show: boolean;
   closed: boolean;
   iconSrc: string;
+  iconSize?: number;
+  notification?: number;
 }

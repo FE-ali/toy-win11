@@ -11,6 +11,10 @@ export const TaskContext = React.createContext<
       pushTask: (task: Task) => void;
       popTask: () => void;
       getTaskById: (id: string) => Task | undefined;
+      openTask: (id: string) => void;
+      closeTask: (id: string) => void;
+      showTask: (id: string) => void;
+      hideTask: (id: string) => void;
       hideAllTask: () => void;
       deleteTaskById: (id: string) => void;
       moveTaskTopById: (id: string) => void;
@@ -22,6 +26,7 @@ export const TaskProvider = ({ children }: { children: React.ReactNode }) => {
   const [taskList, setTaskList] = useState<Task[]>(() => initalTaskListState());
 
   const pushTask = (task: Task) => {
+    console.log('push');
     setTaskList([...taskList, task]);
   };
 
@@ -34,6 +39,48 @@ export const TaskProvider = ({ children }: { children: React.ReactNode }) => {
 
   const getTaskById = (id: string) => {
     return taskList.find((item) => item.id === id);
+  };
+
+  const openTask = (id: string) => {
+    let newTaskList = taskList.map((item) => {
+      if (item.id === id) {
+        item.closed = false;
+        item.show = true;
+      }
+      return item;
+    });
+    setTaskList(newTaskList);
+  };
+
+  const closeTask = (id: string) => {
+    let newTaskList = taskList.map((item) => {
+      if (item.id === id) {
+        item.closed = true;
+        item.show = false;
+      }
+      return item;
+    });
+    setTaskList(newTaskList);
+  };
+
+  const showTask = (id: string) => {
+    let newTaskList = taskList.map((item) => {
+      if (item.id === id) {
+        item.show = true;
+      }
+      return item;
+    });
+    setTaskList(newTaskList);
+  };
+
+  const hideTask = (id: string) => {
+    let newTaskList = taskList.map((item) => {
+      if (item.id === id) {
+        item.show = false;
+      }
+      return item;
+    });
+    setTaskList(newTaskList);
   };
 
   const hideAllTask = () => {
@@ -63,6 +110,10 @@ export const TaskProvider = ({ children }: { children: React.ReactNode }) => {
         pushTask,
         popTask,
         getTaskById,
+        openTask,
+        closeTask,
+        showTask,
+        hideTask,
         hideAllTask,
         deleteTaskById,
         moveTaskTopById,
